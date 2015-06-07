@@ -9,6 +9,14 @@ var router = new Router()
 
 Vue.config.warnExpressionErrors = false
 
+router.on('/main/', function (page) {
+  app.view = 'main-view'
+})
+
+router.on('/login/', function (page) {
+  app.view = 'login-view'
+})
+
 router.on('/news/:page', function (page) {
   app.view = 'news-view'
   app.params.page = +page
@@ -28,8 +36,8 @@ router.on('/item/:id', function (id) {
 
 router.configure({
   notfound: function () {
-    router.setRoute('/news/1')
+    router.setRoute('/login/')
   }
 })
 
-router.init('/news/1')
+router.init('/login/')
